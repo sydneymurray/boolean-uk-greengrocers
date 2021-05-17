@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <title>Brodda Syd's Grocers</title>
+  </head>
+
+  <body>
+    <header id="store">
+      <h1>Brodda Syd's Grocers</h1>
+      <ul class="item-list store--item-list"></ul>
+    </header>
+    <main id="cart">
+      <h2>Your Cart</h2>
+      <div class="cart--item-list-container">
+        <ul class="item-list cart--item-list"></ul>
+      </div>
+      <div class="total-section">
+        <div>
+          <h3>Total</h3>
+        </div>
+        <div>
+          <span class="total-number">£0.00</span>
+        </div>
+      </div>
+    </main>
+    <div>
+      Icons made by
+      <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26"
+        >Icongeek26</a
+      >
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<!-- 
+
+  This is what a store item needs to look like
+
+  <div class="store--item-icon">
+      <img src="assets/icons/item-id.svg" alt="item name">
+    </div>
+    <button>Add to cart</button>
+ -->
+
+<!-- 
+  
+  This is what a cart item needs to look like
+
+   <img class="cart--item-icon" src="assets/icons/item-id.svg" alt="item name">
+    <p>item name</p>
+    <button class="quantity-btn remove-btn center">-</button>
+    <span class="quantity-text center">item quantity</span>
+    <button class="quantity-btn add-btn center">+</button>
+  -->

@@ -1,0 +1,4 @@
+cd \Users\sydney\Desktop\VS-Code\boolean-uk-greengrocers
+json-server --watch db/db.json 
+
+--routes db/routes.json --static .
