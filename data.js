@@ -1,6 +1,8 @@
 //////////////////////////////////////////////////////////////////////////////
 // VARIABLES ARE DECLARED HERE
-
+let cart = null
+let products = null
+/*
 let cart = [
     {
         id: "003-apple", 
@@ -68,3 +70,10 @@ let products = [
         price: 0.35
     }
 ]
+*/
+//////////////////////////////////////////////////////////////////////////////
+// RETRIEVE VARIABLES FROM JSON
+
+
+
+
