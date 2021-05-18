@@ -56,12 +56,42 @@
       "id": "003-apple",
       "name": "apple",
       "price": 0.2,
-      "quantity": 2
+      "quantity": 3
     },
     {
       "id": "004-apricot",
       "name": "apricot",
       "price": 0.25,
+      "quantity": 3
+    },
+    {
+      "id": "002-carrot",
+      "name": "carrot",
+      "price": 0.7,
+      "quantity": 3
+    },
+    {
+      "id": "001-beetroot",
+      "name": "beetroot",
+      "price": 0.35,
+      "quantity": 1
+    },
+    {
+      "id": "008-berry",
+      "name": "berry",
+      "price": 0.5,
+      "quantity": 3
+    },
+    {
+      "id": "009-blueberry",
+      "name": "blueberry",
+      "price": 0.35,
+      "quantity": 16
+    },
+    {
+      "id": "007-bell-pepper",
+      "name": "bell-pepper",
+      "price": 0.15,
       "quantity": 3
     }
   ]

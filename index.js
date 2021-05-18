@@ -25,12 +25,8 @@ function displayCart() {
         displayItems(cartItem)
     }
     displayTotal()
-
-    // IF THE CART IS NOT EMPTY THEN SAVE THE CART IN JSON
-  //  if (cart != null)
-  //      saveCartToJson()
 }
-
+/*
 function saveCartToJson(){
     return fetch(`http://localhost:3000/cart`,{
             method:'POST',
@@ -44,7 +40,7 @@ function saveCartToJson(){
                 })
             })    
 }
-
+*/
 function displayTotal() {
     let totalPrice = document.querySelector(".total-number")
     let cartValue = 0
@@ -77,11 +73,29 @@ function displayStock(stockItem) {
         let index = cart.findIndex(function (presentCartItem) {
             return presentCartItem.name === stockItem.name
         })
-        if (index !== -1)
+        if (index !== -1){
             cart[index].quantity++
+
+            fetch(`http://localhost:3000/cart/${cart[index].id}`,{
+                method:'PATCH',
+                headers:{'Content-Type': 'Application/json'},
+                body: JSON.stringify({quantity: cart[index].quantity})
+            })    
+        }
         else {
             stockItem.quantity = 1
             cart.push(stockItem)
+
+            fetch(`http://localhost:3000/cart`,{
+                method:'POST',
+                headers:{'Content-Type': 'Application/json'},
+                body: JSON.stringify({
+                    id: stockItem.id,
+                    name: stockItem.name,
+                    price: stockItem.price,
+                    quantity: stockItem.quantity
+                })
+            })
         }
         displayCart()
     })
@@ -109,9 +123,19 @@ function displayItems(cartItem) {
     cartItemLi.append(cartItemRemoveButton)
 
     cartItemRemoveButton.addEventListener("click", function () {
-        if (cartItem.quantity > 1)
+        if (cartItem.quantity > 1){
             cartItem.quantity--
+
+            fetch(`http://localhost:3000/cart/${cartItem.id}`,{
+                method:'PATCH',
+                headers:{'Content-Type': 'Application/json'},
+                body: JSON.stringify({quantity: cartItem.quantity})
+            }) 
+        }
         else {
+            fetch(`http://localhost:3000/cart/${cartItem.id}`,{
+                method:'DELETE'})               
+
             let index = cart.findIndex(function (presentCartItem) {
                 return presentCartItem.name === cartItem.name
             })
@@ -132,6 +156,12 @@ function displayItems(cartItem) {
 
     cartItemAddButton.addEventListener("click", function () {
         cartItem.quantity++
+
+        fetch(`http://localhost:3000/cart/${cartItem.id}`,{
+            method:'PATCH',
+            headers:{'Content-Type': 'Application/json'},
+            body: JSON.stringify({quantity: cartItem.quantity})
+        }) 
         displayCart()
     })
 }
@@ -161,6 +191,8 @@ function retrieveJsonDataArrays() {
 retrieveJsonDataArrays().then(function () {
     displayPage()
 })
+
+
 
 
 
